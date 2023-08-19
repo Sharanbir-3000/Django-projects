@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="heading">
+    <h3>{{request.user.username}}</h3>
+    <h4>{{request.user.email}}</h4>
+    <a class="btn btn-back" href="{% url 'home' %}">Back</a>
+</div>
+<hr id="line">
+
+    <div class="box3">Task Name  
+    <pre> <div class='view'><p class="content-incom">{{nm}}</p></div></pre></div>
+
+    <div class="box3">Description
+         <pre> 
+<textarea name="description" cols="50" rows="2" maxlength="300" id="id_description">{{form.description.value}}</textarea></pre></div>
+    
+    <div class="box3">Status  
+        <pre>   
+ <label class="checkbox-label">
+            <input name='status' type="checkbox" {{ form.status.value|yesno:"checked," }}>
+            <span class="checkmark"></span>
+        </label>
+    </pre></div> 
+
+{% endblock %}

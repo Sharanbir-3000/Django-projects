@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="heading">
+    <p id='text'>Login Page</p>
+</div>
+<hr id="line">
+<div class="container">   
+    <form action="" method="POST">
+        {% csrf_token %}
+       <div class="box3"><pre>    Name</pre>   
+        <pre> 
+    <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="Your Name"></pre></pre></div>
+       
+       <div class="box3"><pre>    Password</pre> 
+        <pre> 
+    <input type="password" name="password" autocomplete="new-password" required="" id="id_password" placeholder="password"></pre></div>
+       
+        <input class="btn btn-sub-foot" type="submit" value="Submit">
+    </form>
+</div>
+<hr>
+
+<div class="box-foot">
+    <p id='foot'>Haven't Account ?</p>
+    <a class="btn btn-foot" href="{% url 'register' %}">Sign up</a>
+</div>
+
+{% endblock %}
+

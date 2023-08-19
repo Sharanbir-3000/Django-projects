@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="heading">
+    
+        <h3>{{request.user.username}}</h3>
+        <h4>{{request.user.email}}</h4>
+        <a class="btn-go btn" href="{% url 'create' %}">Create Task</a>
+        <a class="btn-out btn" href="{% url 'register' %}">Logout</a>
+</div>
+<hr id="line">
+
+{% for fm in form %}
+<div class="card">
+    <div class="contain">
+        {% if fm.status %}
+        <a class="check-complete btn" href="{% url 'view' fm.id %}" >View</a>
+        <div class='box1'><p class="content-com">{{fm.task_name}}</p></div>
+        {% else %}
+        <a class="check-incomplete btn" href="{% url 'view' fm.id %}" >View</a>
+        <div class='box1'><p class="content-incom">{{fm.task_name}}</p></div>
+        {% endif %}
+        
+        <a class="btn btn-col" href="{% url 'update' fm.id %}">Update</a>   
+        <a class="btn btn-red" href="{% url 'delete' fm.id %}">Delete</a>   
+    </div>
+    </div>
+
+<hr> 
+{% endfor %}
+{% endblock content %}

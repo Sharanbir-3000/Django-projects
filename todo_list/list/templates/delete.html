@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="heading">
+    <h3>{{request.user.username}}</h3>
+    <h4>{{request.user.email}}</h4>
+    <a class="btn btn-back" href="{% url 'home' %}">Back</a>
+</div>
+<hr id="line">
+<div class="box2">
+    <form action="" method="POST">
+        {% csrf_token %}
+       
+        <p id='text'>Are you sure to delete "{{form.task_name}}" Task ?</p>
+        <button class="btn btn-del" type="submit" >Confirm</button>
+    </form>
+</div>
+{% endblock %}
